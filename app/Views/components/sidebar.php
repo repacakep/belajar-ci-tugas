@@ -29,12 +29,30 @@
         }
         ?>
 
-<li class="nav-item">
-    <a class="nav-link <?php echo (uri_string() == 'profile') ? "" : "collapsed" ?>" href="profile">
-        <i class="bi bi-person"></i>
-        <span>Profile</span>
-    </a>
-</li><!-- End Profile Nav -->
+        <?php
+        if (session()->get('role') == 'admin') {
+        ?>
+            <li class="nav-item">
+
+                <a class="nav-link <?php echo (uri_string() == 'transaksi') ? "" : "collapsed" ?>" href="transaksi">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Transaksi</span>
+                </a>
+
+                <!-- <a class="nav-link <?php echo (uri_string() == 'produk') ? "" : "collapsed" ?>" href="produk">
+                    <i class="bi bi-receipt"></i>
+                    <span>Produk</span>
+                </a> -->
+            </li><!-- End Transaksi Nav -->
+        <?php
+        }
+        ?>
+
+        <li class="nav-item">
+            <a class="nav-link <?php echo (uri_string() == 'profile') ? "" : "collapsed" ?>" href="profile">
+                <i class="bi bi-person"></i>
+                <span>Profile</span>
+            </a>
+        </li> <!-- End Profile Nav -->
 
         <li class="nav-item">
             <a class="nav-link <?php echo (uri_string() == 'faq') ? "" : "collapsed" ?>" href="faq">
